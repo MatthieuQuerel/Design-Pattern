@@ -1,4 +1,6 @@
-﻿# Réponses aux questions
+Evaluation Design pattern 
+ 
+ # Réponses aux questions
 ﻿#﻿# Design pattern
 ﻿#﻿#﻿# Diagrame 
 ﻿#﻿#﻿## Lancement 
@@ -7,7 +9,7 @@
 
 
 
-﻿* Réponses aux questions
+﻿ #Réponses aux questions
 1.	Quel(s) avantage(s) procure le fait de programmer vers une interface et non vers une implémentation ? Vous pouvez illustrer votre réponse avec un code source minimal et/ou avec un diagramme.
 
 -	Programmer vers une interface procure une flexibilité et une maintenance et de mieux gérer les dépendances, cela permet également de se concentrer sur une class.
