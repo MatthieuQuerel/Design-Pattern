@@ -6,6 +6,7 @@ Evaluation Design pattern
 ﻿#﻿#﻿## Lancement 
 ﻿#﻿﻿#﻿### Source
 #﻿﻿#### Imprésion
+#﻿﻿##### Code Source
 
 
 
@@ -162,14 +163,105 @@ Systèmes distribués : le médiateur peut être utilisé pour gérer les intera
                     |                   |      +------------------+
                     +------------------+
 ﻿#﻿#﻿## Lancement
-1 ) dans un premier temps l'utilisateur dois ou non change l'écart entre la génération de chiffre (public function getRandomNumber() {)
-2) aussi  l'utilisateur dois ou non  change les mots de le fonction(public function getRandomWord() { et public function getRandomColor() {) 
-3) dans le terminale du code faire un php Mediateur.PHP
+1) dans un premier temps recuperer le projet et le metre dans un serveur wamps. 
+2) l'utilisateur dois ou non change l'écart entre la génération de chiffre (public function getRandomNumber() {) selon ce qu'il veut afficher
+3) aussi  l'utilisateur dois ou non  change les mots de le fonction(public function getRandomWord() { et public function getRandomColor() {) selon ce qu'il veut afficher
+4) dans le terminale du code faire la commande 'php Mediateur.PHP'
 
 ﻿#﻿#﻿#﻿##﻿Source 
  https://refactoring.guru/fr/design-patterns
  https://fr.wikipedia.org/wiki/Patron_de_conception
  https://www.adimeo.com/blog-technique/design-patterns-a-quoi-ca-sert-et-comment-les-utiliser
  livre =>Architecture logicielle propre
-#﻿﻿###﻿﻿## ﻿#Imprésion
-je trouve que cela a étez une bonne expériance riche en aprentisage qui aport un nouveau point de vue sur mon développement web ou même embarqué
+#﻿﻿###﻿﻿### Imprésion
+je trouve que cela a été une bonne expérience riche en apprentissage qui apporte un nouveau point de vue sur mon développement web ou même embarqué (Ardouino) aussi je vais l'incorporé dans les projet windev en entreprise tout cette partie design-patterns
+
+#﻿﻿######  Code Source 
+Je me suis inspiré en trautre de ce code source que l'on trouve https://refactoring.guru/fr/design-patterns/mediator pour mon projet 
+
+// L’interface médiateur déclare une méthode qui permet aux
+// composants d’avertir le médiateur au sujet de divers
+// événements. Le médiateur peut réagir à ces événements et
+// passer les appels aux autres composants.
+interface Mediator is
+    method notify(sender: Component, event: string)
+
+
+// La classe concrète Médiateur. Les interconnexions entre les
+// composants individuels ont été démêlées et transférées dans
+// le médiateur.
+class AuthenticationDialog implements Mediator is
+    private field title: string
+    private field loginOrRegisterChkBx: Checkbox
+    private field loginUsername, loginPassword: Textbox
+    private field registrationUsername, registrationPassword,
+                  registrationEmail: Textbox
+    private field okBtn, cancelBtn: Button
+
+    constructor AuthenticationDialog() is
+        // Crée les composants et passe le médiateur actuel dans
+        // leurs constructeurs pour établir les liens.
+
+    // Le médiateur est averti si un composant est affecté par
+    // quoi que ce soit. Lorsqu’un médiateur reçoit une
+    // notification, il peut lancer un traitement ou envoyer la
+    // demande à un autre composant.
+    method notify(sender, event) is
+        if (sender == loginOrRegisterChkBx and event == "check")
+            if (loginOrRegisterChkBx.checked)
+                title = "Log in"
+                // 1. Affiche les composants du formulaire
+                // d’identification.
+                // 2. Cache les composants du formulaire
+                // d’inscription.
+            else
+                title = "Register"
+                // 1. Affiche les composants du formulaire
+                // d’inscription.
+                // 2. Cache les composants du formulaire
+                // d’identification.
+
+        if (sender == okBtn && event == "click")
+            if (loginOrRegister.checked)
+                // Essaye de trouver un utilisateur à l’aide de
+                // ses identifiants.
+                if (!found)
+                    // Montre un message d’erreur au-dessus du
+                    // champ identifiant.
+            else
+                // 1. Crée un compte utilisateur en utilisant
+                // les données saisies dans les champs
+                // d’inscription.
+                // 2. Connecte cet utilisateur.
+                // ...
+
+
+// Les composants communiquent avec un médiateur en utilisant
+// son interface. Grâce à cela, vous pouvez utiliser les mêmes
+// composants dans d’autres contextes en les associant avec
+// d’autres objets médiateur.
+class Component is
+    field dialog: Mediator
+
+    constructor Component(dialog) is
+        this.dialog = dialog
+
+    method click() is
+        dialog.notify(this, "click")
+
+    method keypress() is
+        dialog.notify(this, "keypress")
+
+// Les composants concrets ne communiquent pas ensemble. Leur
+// unique canal de communication leur sert à envoyer des
+// notifications au médiateur.
+class Button extends Component is
+    // ...
+
+class Textbox extends Component is
+    // ...
+
+class Checkbox extends Component is
+    method check() is
+        dialog.notify(this, "check")
+    // ...
