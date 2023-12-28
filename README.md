@@ -1,6 +1,6 @@
 Evaluation Design pattern 
  
- # Réponses aux questions
+# Réponses aux questions
 ﻿#﻿# Design pattern
 ﻿#﻿#﻿# Diagrame 
 ﻿#﻿#﻿## Lancement 
@@ -103,7 +103,7 @@ Imaginons une application qui permet aux utilisateurs de générer des nombres a
 
 Situation initiale:
 
-Dans la situation initiale, chaque utilisateur doit accéder directement à l'application pour utiliser les données fournie par le code  qu'ils souhaitent. Cela peut être peu pratique, car cela oblige chaque utilisateur à connaître les commandes de l'application.
+Dans la situation initiale, chaque utilisateur doit accéder directement à l'application pour utiliser les données fournies par le code  qu'ils souhaitent. Cela peut être peu pratique, car cela oblige chaque utilisateur à connaître les commandes de l'application.
 
 Problème à résoudre:
 
@@ -174,10 +174,14 @@ Systèmes distribués : le médiateur peut être utilisé pour gérer les intera
  https://www.adimeo.com/blog-technique/design-patterns-a-quoi-ca-sert-et-comment-les-utiliser
  livre =>Architecture logicielle propre
 #﻿﻿###﻿﻿### Imprésion
-je trouve que cela a été une bonne expérience riche en apprentissage qui apporte un nouveau point de vue sur mon développement web ou même embarqué (Ardouino) aussi je vais l'incorporé dans les projet windev en entreprise tout cette partie design-patterns
+Je trouve que cela a été une bonne expérience, riche en apprentissage, qui apporte
+un nouveau point de vue sur mon développement web ou même embarqué
+(Ardouino) aussi je vais incorporer dans les projets WinDev en entreprise toute cette
+partie design-patterns
 
 #﻿﻿######  Code Source 
-Je me suis inspiré en trautre de ce code source que l'on trouve https://refactoring.guru/fr/design-patterns/mediator pour mon projet 
+Je me suis inspiré entre autre de ce code source que l'on
+trouve https://refactoring.guru/fr/design-patterns/mediator pour mon projet
 
 // L’interface médiateur déclare une méthode qui permet aux
 // composants d’avertir le médiateur au sujet de divers
