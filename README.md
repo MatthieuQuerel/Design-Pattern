@@ -96,10 +96,10 @@ public class Main {
 Une interface est un ensemble de méthodes abtraites qui n’a pas de corps et qui doit être implémentées par des class. Une interface definit un contrat que les class doivent respecter et présiser les méthodes que les class doivent fournir
 
 
-﻿#﻿#Design pattern
+﻿#﻿#Design pattern Madiateur
  Contexte:
 
-Imaginons une application qui permet aux utilisateurs de générer des nombres aléatoires, des mots aléatoires et des couleurs aléatoires. Cette application permet aux utilisateurs de choisir les types de données qu'ils souhaitent générer et de spécifier le nombre de résultats qu'ils souhaitent obtenir.
+Imaginons une application ou jeux qui permet aux utilisateurs de générer des nombres aléatoires, des mots aléatoires et des couleurs aléatoires. Cette application permet aux utilisateurs de choisir les types de données qu'ils souhaitent générer et de spécifier le nombre de résultats qu'ils souhaitent obtenir.
 
 Situation initiale:
 
