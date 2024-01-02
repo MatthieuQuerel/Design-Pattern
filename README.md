@@ -163,10 +163,11 @@ Systèmes distribués : le médiateur peut être utilisé pour gérer les intera
                     |                   |      +------------------+
                     +------------------+
 ﻿#﻿#﻿## Lancement
-1) dans un premier temps recuperer le projet et le metre dans un serveur wamps. 
+1) dans un premier temps recuperer le projet. 
 2) l'utilisateur dois ou non change l'écart entre la génération de chiffre (public function getRandomNumber() {) selon ce qu'il veut afficher
 3) aussi  l'utilisateur dois ou non  change les mots de le fonction(public function getRandomWord() { et public function getRandomColor() {) selon ce qu'il veut afficher
-4) dans le terminale du code faire la commande 'php Mediateur.PHP'
+4) dans le terminale du code faire la commande
+   php Mediateur.PHP
 
 ﻿#﻿#﻿#﻿##﻿Source 
  https://refactoring.guru/fr/design-patterns
