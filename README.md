@@ -16,40 +16,39 @@ Evaluation Design pattern
 -	Programmer vers une interface procure une flexibilité et une maintenance et de mieux gérer les dépendances, cela permet également de se concentrer sur une class.
 
 -	Ce dessous un exemple de code source qui permet une flexibilité et une maintenance plutôt stable avec la partie de récupération de la  fonction dans interface et de l’exécuter dans les 2 class
-2.	<?php
-3.	
-4.	// Interface
-5.	interface Formatter {
-6.	    public function formatData($data);
-7.	}
-8.	
-9.	// Implémentation JSONFormatter
-10.	class JSONFormatter implements Formatter {
-11.	    public function formatData($data) {
-12.	        // Implémentation pour formater en JSON
-13.	        return json_encode(['data' => $data]);
-14.	    }
-15.	}
-16.	
-17.	// Implémentation CSVFormatter
-18.	class CSVFormatter implements Formatter {
-19.	    public function formatData($data) {
-20.	        // Implémentation pour formater en CSV
-21.	        return "key, value\n" . $data;
-22.	    }
-23.	}
-24.	
-25.	// Utilisation dans le code client
-26.	// Utilisation avec JSONFormatter
-27.	$jsonFormatter = new JSONFormatter();
-28.	$jsonData = $jsonFormatter->formatData("some data");
-29.	echo "JSON Data: " . $jsonData . PHP_EOL;
-30.	
-31.	// Utilisation avec CSVFormatter
-32.	$csvFormatter = new CSVFormatter();
-33.	$csvData = $csvFormatter->formatData("some data");
-34.	echo "CSV Data: " . $csvData . PHP_EOL;
-35.	?>
+  <?php
+	
+	// Interface
+interface Formatter {
+	    public function formatData($data);
+	}
+		// Implémentation JSONFormatter
+	class JSONFormatter implements Formatter {
+	    public function formatData($data) {
+        // Implémentation pour formater en JSON
+	        return json_encode(['data' => $data]);
+	    }
+	}
+	
+	// Implémentation CSVFormatter
+	class CSVFormatter implements Formatter {
+	    public function formatData($data) {
+        // Implémentation pour formater en CSV
+	        return "key, value\n" . $data;
+	    }
+	}
+
+// Utilisation dans le code client
+	// Utilisation avec JSONFormatter
+	$jsonFormatter = new JSONFormatter();
+	$jsonData = $jsonFormatter->formatData("some data");
+echo "JSON Data: " . $jsonData . PHP_EOL;
+
+	// Utilisation avec CSVFormatter
+	$csvFormatter = new CSVFormatter();
+	$csvData = $csvFormatter->formatData("some data");
+	echo "CSV Data: " . $csvData . PHP_EOL;
+	?>
 
 
 2. Pourquoi, de manière générale, vaut-il mieux préférerla composition à l’héritage ? Vous pouvez illustrer votre réponse avec un code source minimal et/ou avec un diagramme.
