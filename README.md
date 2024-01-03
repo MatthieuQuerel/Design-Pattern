@@ -138,29 +138,48 @@ Systèmes distribués : le médiateur peut être utilisé pour gérer les intera
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ﻿#﻿#﻿# Diagrame 
- +-------------------+        +---------------------+        +------------------+
-|   IMediator       |        |  AbstractMediator   |        |  ConcreteMediator|
-+-------------------+        +---------------------+        +------------------+
-| + addClient()     |        | - clients: array    |        |+notifyClients    |
-| + getRandomNumber()|<>-----| + addClient()       |        |                  |
-| + getRandomWord()  |       | + getRandomNumber() |        |                  |
-| + getRandomColor() |       | + getRandomWord()   |        |                  |
-| + notifyClients()  |       | + getRandomColor()  |        |                  |
-+-------------------+        | + notifyClients()   |        |                  |
-                             +---------------------+        +------------------+
-                                        |
-                                        |
-                             +----------|------------+
-                             |                       |
-                    +------------------+    +---------------------+
-                    |     IClient      |    |      Client         |
-                    +------------------+    +---------------------+
-                    | + onRandomNumber()|    |- mediator: IMediator|
-                    |+ onRandomWord()   |    | + onRandomNumber()  |
-                    |  + onRandomColor()|    | + onRandomWord()    |
-                    |                   |    | + onRandomColor()   |
-                    |                   |      +------------------+
-                    +------------------+
+interface IMediator {
+  + addClient(IClient client): void
+  + getRandomNumber(): int
+  + getRandomWord(): string
+  + getRandomColor(): string
+  + notifyClients(): void
+}
+
+class AbstractMediator implements IMediator {
+  - private clients: array<IClient>
+
+  + addClient(IClient client): void
+  + getRandomNumber(): int
+  + getRandomWord(): string
+  + getRandomColor(): string
+  + notifyClients(): void
+}
+
+class ConcreteMediator extends AbstractMediator {
+  # notifyClients(): void
+
+  + ConcreteMediator()
+}
+
+interface IClient {
+  + onRandomNumber(): void
+  + onRandomWord(): void
+  + onRandomColor(): void
+}
+
+class Client implements IClient {
+  - private mediator: IMediator
+
+  + Client(IMediator mediator)
+  + onRandomNumber(): void
+  + onRandomWord(): void
+  + onRandomColor(): void
+}
+
+IMediator <|-- AbstractMediator
+AbstractMediator <|-- ConcreteMediator
+IClient <|-- Client
 ﻿#﻿#﻿## Lancement
 1) dans un premier temps recuperer le projet. 
 2) l'utilisateur dois ou non change l'écart entre la génération de chiffre (public function getRandomNumber() {) selon ce qu'il veut afficher
