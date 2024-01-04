@@ -19,7 +19,8 @@
 1.	Quel(s) avantage(s) procure le fait de programmer vers une interface et non vers une implémentation ? Vous pouvez illustrer votre réponse avec un code source minimal et/ou avec un diagramme.
 
 -	Programmer vers une interface procure une flexibilité et une maintenance et de mieux gérer les dépendances, cela permet également de se concentrer sur une class.
-
+-	Réduire la complexité de votre code (simple is not easy) en découplant vos modules
+-	Rendre votre code solid
 -	Ce dessous un exemple de code source qui permet une flexibilité et une maintenance plutôt stable avec la partie de récupération de la  fonction dans interface et de l’exécuter dans les 2 class
   ##
    
