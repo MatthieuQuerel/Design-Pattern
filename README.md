@@ -181,11 +181,15 @@ Systèmes distribués : le médiateur peut être utilisé pour gérer les intera
 	  + onRandomColor(): void
 	}
 
-IMediator <|-- AbstractMediator
+IMediator  <|-- AbstractMediator  (heritage)
 
-AbstractMediator <|-- ConcreteMediator
+AbstractMediator <|-- ConcreteMediator (heritage)
 
-IClient <|-- Client
+IClient <|-- Client   (implements)
+
+ConcreteMediator  <|-- IMediator   (implements)
+
+ConcreteMediator  <|-- Client   (composition)
 
 **Lancement :**
 ##
