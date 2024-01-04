@@ -98,7 +98,7 @@ Cet exemple on peut retrouver une composition entre la class public ‘Engine �
 3. En programmation orienté objet, qu’est-ce qu’une interface ? Remarque : on ne parle pasici du construct PHPinterface.
 Une interface est un ensemble de méthodes abtraites qui n’a pas de corps et qui doit être implémentées par des class. Une interface definit un contrat que les class doivent respecter et présiser les méthodes que les class doivent fournir
 
-﻿**Design pattern Madiateur : **
+﻿**Design pattern Madiateur :**
  
  ##
  Contexte:
